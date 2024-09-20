@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <h2>Update Property</h2>
+    <form method="POST" action="{{ url_for('update_property', property_id=property.Property_ID) }}">
+        <label for="TypeID">Type:</label>
+        <input type="number" id="TypeID" name="TypeID" value="{{ property.TypeID }}" required>
+        
+        <label for="Size">Size:</label>
+        <input type="number" id="Size" name="Size" value="{{ property.Size }}" step="1" required>
+        
+        <label for="Price">Price:</label>
+        <input type="number" id="Price" name="Price" value="{{ property.Price }}" step="1" required>
+        
+        <label for="Current_Status">Status:</label>
+        <select id="Current_Status" name="Current_Status" required>
+            <option value="Sold" {% if property.Current_Status == 'Sold' %}selected{% endif %}>Sold</option>
+            <option value="For Rent" {% if property.Current_Status == 'For Rent' %}selected{% endif %}>For Rent</option>
+            <option value="For Sale" {% if property.Current_Status == 'For Sale' %}selected{% endif %}>For Sale</option>
+            <option value="Not Available" {% if property.Current_Status == 'Not Available' %}selected{% endif %}>Not Available</option>
+        </select>
+        
+        <label for="City">City:</label>
+        <input type="text" id="City" name="City" value="{{ property.City }}" required>
+        
+        <label for="Address_Line1">Address Line 1:</label>
+        <input type="text" id="Address_Line1" name="Address_Line1" value="{{ property.Address_Line1 }}" required>
+        
+        <label for="Address_Line2">Address Line 2:</label>
+        <input type="text" id="Address_Line2" name="Address_Line2" value="{{ property.Address_Line2 }}">
+        
+        <label for="State">State:</label>
+        <input type="text" id="State" name="State" value="{{ property.State }}">
+        
+        <label for="Bathrooms_No">Bathrooms:</label>
+        <input type="number" id="Bathrooms_No" name="Bathrooms_No" value="{{ property.Bathrooms_No }}" step="1">
+        
+        <label for="Bedrooms_No">Bedrooms:</label>
+        <input type="number" id="Bedrooms_No" name="Bedrooms_No" value="{{ property.Bedrooms_No }}" step="1">
+        
+        <label for="FeatureID">Feature:</label>
+        <input type="number" id="FeatureID" name="FeatureID" value="{{ property.FeatureID }}">
+        
+        <label for="Furniture">Furniture:</label>
+        <select id="Furniture" name="Furniture" required>
+            <option value="0" {% if property.Furniture == 0 %}selected{% endif %}>No</option>
+            <option value="1" {% if property.Furniture == 1 %}selected{% endif %}>Yes</option>
+        </select>
+        
+        <label for="Listing_Date">Listing Date:</label>
+        <input type="date" id="Listing_Date" name="Listing_Date" value="{{ property.Listing_Date.strftime('%Y-%m-%d') }}" required>
+        
+        <label for="Note">Note:</label>
+        <textarea id="Note" name="Note">{{ property.Note }}</textarea>
+        
+        <label for="Owner_ID">Owner ID:</label>
+        <input type="number" id="Owner_ID" name="Owner_ID" value="{{ property.Owner_ID }}">
+        
+        <button type="submit">Update Property</button>
+    </form>
+</div>
+{% endblock %}

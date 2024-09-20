@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="contentt">
+        <header class="dashBb">
+            <h2>Properties</h2>
+        </header>
+        <div class="">
+            <a class="propmngg" href="{{ url_for('add_property') }}"><p>Add New Property</p></a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Property ID</th>
+                    <th>Type ID</th>
+                    <th>Size</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>City</th>
+                    <th>Address Line 1</th>
+                    <th>Address Line 2</th>
+                    <th>State</th>
+                    <th>Bathrooms</th>
+                    <th>Bedrooms</th>
+                    <th>Feature ID</th>
+                    <th>Furniture</th>
+                    <th>Listing Date</th>
+                    <th>Note</th>
+                    <th>Owner ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for property in properties %}
+                <tr>
+                    <td>{{ property.Property_ID }}</td>
+                    <td>{{ property.TypeID }}</td>
+                    <td>{{ property.Size }}</td>
+                    <td>{{ property.Price }}</td>
+                    <td>{{ property.Current_Status }}</td>
+                    <td>{{ property.City }}</td>
+                    <td>{{ property.Address_Line1 }}</td>
+                    <td>{{ property.Address_Line2 }}</td>
+                    <td>{{ property.State }}</td>
+                    <td>{{ property.Bathrooms_No }}</td>
+                    <td>{{ property.Bedrooms_No }}</td>
+                    <td>{{ property.FeatureID }}</td>
+                    <td>{{ property.Furniture }}</td>
+                    <td>{{ property.Listing_Date }}</td>
+                    <td>{{ property.Note }}</td>
+                    <td>{{ property.Owner_ID }}</td>
+                    <td>
+                        <button>
+                            <a href="{{ url_for('update_property', property_id=property.Property_ID) }}">Edit</a>
+                        </button>
+                        <button>
+                            <a href="#" class="delete-button" data-property-id="{{ property.Property_ID }}" data-type-id="{{ property.TypeID }}" data-size="{{ property.Size }}" data-price="{{ property.Price }}" data-status="{{ property.Current_Status }}" data-city="{{ property.City }}" data-listing-date="{{ property.Listing_Date }}" data-address-line2="{{ property.Address_Line2 }}">Delete</a>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.delete-button').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            var propertyId = button.getAttribute('data-property-id');
+            var typeId = button.getAttribute('data-type-id');
+            var size = button.getAttribute('data-size');
+            var price = button.getAttribute('data-price');
+            var status = button.getAttribute('data-status');
+            var city = button.getAttribute('data-city');
+            var listingDate = button.getAttribute('data-listing-date');
+            var addressLine2 = button.getAttribute('data-address-line2');
+            if (confirm(`Are you sure you want to delete the property with ID: ${propertyId}\nType ID: ${typeId}\nSize: ${size}\nPrice: ${price}\nStatus: ${status}\nCity: ${city}\nListing Date: ${listingDate}\nAddress Line 2: ${addressLine2}?`)) {
+                var form = document.createElement('form');
+                form.method = 'POST';
+                form.action = `/properties/delete/${propertyId}`;
+                document.body.appendChild(form);
+                form.submit();
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

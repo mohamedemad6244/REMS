@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hndl">
+    <div class="content23">
+        <h2>Add Feature</h2>
+        <form action="{{ url_for('add_feature') }}" method="POST">
+            <div class="form-group">
+                <label for="feature_name">Feature Name</label>
+                <input type="text" name="feature_name" id="feature_name" required>
+            </div>
+            <button type="submit">Add Feature</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

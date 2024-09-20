@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hndl">
+    <div class="content23">
+    <h2>Add Property</h2>
+    <form method="POST" action="{{ url_for('add_property') }}">
+        <label for="TypeID">Type:</label>
+        <input type="number" id="TypeID" name="TypeID" required>
+        
+        <label for="Size">Size:</label>
+        <input type="number" id="Size" name="Size" step="1" required>
+        
+        <label for="Price">Price:</label>
+        <input type="number" id="Price" name="Price" step="1" required>
+        
+        <label for="Current_Status">Status:</label>
+        <select id="Current_Status" name="Current_Status" required>
+            <option value="Sold">Sold</option>
+            <option value="Rented">Sold</option>
+            <option value="For Rent">For Rent</option>
+            <option value="For Sale">For Sale</option>
+            <option value="Not Available">Not Available</option>
+        </select>
+        
+        <label for="City">City:</label>
+        <input type="text" id="City" name="City" required>
+        
+        <label for="Address_Line1">Address Line 1:</label>
+        <input type="text" id="Address_Line1" name="Address_Line1" required>
+        
+        <label for="Address_Line2">Address Line 2:</label>
+        <input type="text" id="Address_Line2" name="Address_Line2">
+        
+        <label for="State">State:</label>
+        <input type="text" id="State" name="State">
+        
+        <label for="Bathrooms_No">Bathrooms:</label>
+        <input type="number" id="Bathrooms_No" name="Bathrooms_No" step="1">
+        
+        <label for="Bedrooms_No">Bedrooms:</label>
+        <input type="number" id="Bedrooms_No" name="Bedrooms_No" step="1">
+        
+        <label for="FeatureID">Feature:</label>
+        <input type="number" id="FeatureID" name="FeatureID">
+        
+        <label for="Furniture">Furniture:</label>
+        <select id="Furniture" name="Furniture" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+        
+        <label for="Listing_Date">Listing Date:</label>
+        <input type="date" id="Listing_Date" name="Listing_Date" required>
+        
+        <label for="Note">Note:</label>
+        <textarea id="Note" name="Note"></textarea>
+        
+        <label for="Owner_ID">Owner ID:</label>
+        <input type="number" id="Owner_ID" name="Owner_ID">
+        
+        <button class="btnn" type="submit">Add Property</button>
+    </form>
+    </div>
+</section>
+{% endblock %}

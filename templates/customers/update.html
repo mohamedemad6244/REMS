@@ -1,0 +1,19 @@
+<!-- customers/update.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Update Customer</h2>
+<form method="POST">
+    <label for="F_Name">First Name:</label>
+    <input type="text" id="F_Name" name="F_Name" value="{{ customer.F_Name }}"><br>
+    <label for="L_Name">Last Name:</label>
+    <input type="text" id="L_Name" name="L_Name" value="{{ customer.L_Name }}"><br>
+    <label for="Phone">Phone:</label>
+    <input type="text" id="Phone" name="Phone" value="{{ customer.Phone }}"><br>
+    <label for="Email">Email:</label>
+    <input type="email" id="Email" name="Email" value="{{ customer.Email }}"><br>
+    <label for="Customer_City">City:</label>
+    <input type="text" id="Customer_City" name="Customer_City" value="{{ customer.Customer_City }}"><br>
+    <button type="submit">Update Customer</button>
+</form>
+{% endblock %}

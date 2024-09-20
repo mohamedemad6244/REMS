@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <h2>Update Property Type</h2>
+    <form action="{{ url_for('update_property_type', type_id=property_type.TypeID) }}" method="POST">
+        <div class="form-group">
+            <label for="type_name">Type Name</label>
+            <input type="text" name="type_name" id="type_name" value="{{ property_type.TypeName }}" required>
+        </div>
+        <button type="submit">Update Property Type</button>
+    </form>
+</div>
+{% endblock %}

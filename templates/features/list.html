@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="contentt">
+        <header class="dashBb">
+            <h2>Features</h2>
+        </header>
+        <div class="">
+            <a class="propmngg" href="{{ url_for('add_feature') }}"><p>Add New New Feature</p></a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>FeatureID</th>
+                    <th>FeatureName</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feature in features %}
+                <tr>
+                    <td>{{ feature.FeatureID }}</td>
+                    <td>{{ feature.FeatureName }}</td>
+                    <td>
+                        <button class="button">
+                            <a href="{{ url_for('update_feature', feature_id=feature.FeatureID) }}" class="btn btn-warning">Edit</a>
+                        </button>   
+                        <button class="button">
+                            <a href="{{ url_for('delete_feature', feature_id=feature.FeatureID) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this feature?');">Delete</a>
+                        </button>   
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+    {% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="contentt">
+        <header class="dashBb">
+            <h2>Installment Deals</h2>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Installment Deal ID</th>
+                    <th>Deal ID</th>
+                    <th>Installment Start Date</th>
+                    <th>Installment End Date</th>
+                    <th>Total Price</th>
+                    <th>Down Payment</th>
+                    <th>Frequency</th>
+                    <th>Installment Amount</th>
+                    <th>Deal Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deal in installment_deals %}
+                <tr>
+                    <td>{{ deal.Installment_Deal_ID }}</td>
+                    <td>{{ deal.Deal_ID }}</td>
+                    <td>{{ deal.Inst_Start_Date }}</td>
+                    <td>{{ deal.Inst_End_Date }}</td>
+                    <td>{{ deal.Total_Price }}</td>
+                    <td>{{ deal.Down_Payment }}</td>
+                    <td>{{ deal.Frequency }}</td>
+                    <td>{{ deal.Installment_Amount }}</td>
+                    <td>{{ deal.Deal_Status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

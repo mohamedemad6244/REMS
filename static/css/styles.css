@@ -1,0 +1,243 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Container for general layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #333;
+    padding-top: 20px;
+    
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+/* Main content area styles */
+.content {
+    margin-left: 220px;
+    padding-top: 20px;
+}
+
+/* Responsive design adjustments */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .sidebar a {
+        float: left;
+    }
+
+    .content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+
+/* Dashboard Cards Styling */
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.dashboard .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1 1 200px;
+    max-width: 300px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.dashboard .card:hover {
+    background-color: #f4f4f4;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard .card h3 {
+    margin-bottom: 10px;
+}
+
+.dashboard .card p {
+    margin-top: 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Form styling */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form .form-group input,
+form .form-group select,
+form .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form .form-group textarea {
+    resize: vertical;
+}
+
+form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+form button:hover {
+    background-color: #575757;
+}
+
+/* Table styles for listing entities */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+}
+
+
+.dash{
+    align-items: center;
+    align-content: center;
+    display: flex;
+    height: 30px;
+}
+.dash h1{
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 40px;
+}
+
+
+
+
+
+
+
+button {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #3498db;
+    text-transform: uppercase;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #2980b9;
+    align-items: center;
+    align-content: center;
+    margin: 4px;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    transition: background-color 0.3s ease, transform 0.4s ease-in-out;
+}

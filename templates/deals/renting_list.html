@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="contentt">
+        <div class="contentt">
+            <header class="dashBb">
+                <h2>Renting Deals</h2>
+            </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Renting Deal ID</th>
+                    <th>Deal ID</th>
+                    <th>Rent Start Date</th>
+                    <th>Rent End Date</th>
+                    <th>Monthly Rent</th>
+                    <th>Security Deposit</th>
+                    <th>Deal Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deal in renting_deals %}
+                <tr>
+                    <td>{{ deal.Renting_Deal_ID }}</td>
+                    <td>{{ deal.Deal_ID }}</td>
+                    <td>{{ deal.Rent_Start_Date }}</td>
+                    <td>{{ deal.Rent_End_Date }}</td>
+                    <td>{{ deal.Monthly_Rent }}</td>
+                    <td>{{ deal.Security_Deposit }}</td>
+                    <td>{{ deal.Deal_Status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

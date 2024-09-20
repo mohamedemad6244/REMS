@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hndl">
+    <div class="content23">
+        <h2>Add New Deal</h2>
+        <form id="dealForm" action="{{ url_for('add_deal') }}" method="POST">
+            <div class="form-group">
+                <label for="deal_status">Deal Status</label>
+                <select name="deal_status" id="deal_status" required>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="act_end_date">Actual End Date</label>
+                <input type="date" name="act_end_date" id="act_end_date">
+            </div>
+            <div class="form-group">
+                <label for="property_id">Property ID</label>
+                <input type="number" name="property_id" id="property_id" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_id">Customer ID</label>
+                <input type="number" name="customer_id" id="customer_id" required>
+            </div>
+            <div class="form-group">
+                <label for="agent_id">Agent ID</label>
+                <input type="number" name="agent_id" id="agent_id">
+            </div>
+            <div class="form-group">
+                <label for="deal_type">Deal Type</label>
+                <select name="deal_type" id="deal_type" required>
+                    <option value="">Select Deal Type</option>
+                    <option value="Cash">Cash</option>
+                    <option value="Installment">Installment</option>
+                    <option value="Renting">Renting</option>
+                </select>
+            </div>
+            
+            <!-- Conditional fields -->
+            <div id="rentingFields" style="display: none;">
+                <h3>Renting Deal Details</h3>
+                <div class="form-group">
+                    <label for="rent_start_date">Rent Start Date</label>
+                    <input type="date" name="rent_start_date" id="rent_start_date">
+                </div>
+                <div class="form-group">
+                    <label for="rent_end_date">Rent End Date</label>
+                    <input type="date" name="rent_end_date" id="rent_end_date">
+                </div>
+                <div class="form-group">
+                    <label for="monthly_rent">Monthly Rent</label>
+                    <input type="number" name="monthly_rent" id="monthly_rent">
+                </div>
+                <div class="form-group">
+                    <label for="security_deposit">Security Deposit</label>
+                    <input type="number" name="security_deposit" id="security_deposit">
+                </div>
+            </div>
+    
+            <div id="installmentFields" style="display: none;">
+                <h3>Installment Deal Details</h3>
+                <div class="form-group">
+                    <label for="inst_start_date">Installment Start Date</label>
+                    <input type="date" name="inst_start_date" id="inst_start_date">
+                </div>
+                <div class="form-group">
+                    <label for="inst_end_date">Installment End Date</label>
+                    <input type="date" name="inst_end_date" id="inst_end_date">
+                </div>
+                <div class="form-group">
+                    <label for="total_price">Total Price</label>
+                    <input type="number" name="total_price" id="total_price">
+                </div>
+                <div class="form-group">
+                    <label for="down_payment">Down Payment</label>
+                    <input type="number" name="down_payment" id="down_payment">
+                </div>
+                <div class="form-group">
+                    <label for="frequency">Frequency</label>
+                    <input type="text" name="frequency" id="frequency">
+                </div>
+                <div class="form-group">
+                    <label for="installment_amount">Installment Amount</label>
+                    <input type="number" name="installment_amount" id="installment_amount">
+                </div>
+            </div>
+    
+            <div id="cashFields" style="display: none;">
+                <h3>Cash Deal Details</h3>
+                <div class="form-group">
+                    <label for="deal_price">Deal Price</label>
+                    <input type="number" name="deal_price" id="deal_price">
+                </div>
+                <div class="form-group">
+                    <label for="deal_date">Deal Date</label>
+                    <input type="date" name="deal_date" id="deal_date">
+                </div>
+                <div class="form-group">
+                    <label for="upfront_deposit">Upfront Deposit</label>
+                    <input type="number" name="upfront_deposit" id="upfront_deposit">
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <label for="note">Note</label>
+                <textarea name="note" id="note"></textarea>
+            </div>
+            <button type="submit">Add Deal</button>
+        </form>
+    </div>
+</section>
+
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('deal_type').addEventListener('change', function() {
+        const type = this.value;
+        document.getElementById('rentingFields').style.display = (type === 'Renting') ? 'block' : 'none';
+        document.getElementById('installmentFields').style.display = (type === 'Installment') ? 'block' : 'none';
+        document.getElementById('cashFields').style.display = (type === 'Cash') ? 'block' : 'none';
+    });
+});
+</script>
+{% endblock %}

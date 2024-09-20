@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="contentt">
+        <header class="dashBb">
+                <h2>Deals</h2>
+                <h2>Customers</h2>
+            </header>
+            <div class="">
+                <a class="propmngg" href="{{ url_for('add_deal') }}"><p>Add New Deal</p></a>
+            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Deal ID</th>
+                    <th>Deal Status</th>
+                    <th>Actual End Date</th>
+                    <th>Property ID</th>
+                    <th>Customer ID</th>
+                    <th>Agent ID</th>
+                    <th>Deal Type</th>
+                    <th>Note</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deal in deals %}
+                <tr>
+                    <td>{{ deal.Deal_ID }}</td>
+                    <td>{{ deal.Deal_Status }}</td>
+                    <td>{{ deal.Act_End_Date }}</td>
+                    <td>{{ deal.Property_ID }}</td>
+                    <td>{{ deal.Customer_ID }}</td>
+                    <td>{{ deal.Agent_ID }}</td>
+                    <td>{{ deal.Deal_Type }}</td>
+                    <td>{{ deal.Note }}</td>
+                    <td>
+                        <button class="button">
+                            <a href="{{ url_for('update_deal', deal_id=deal.Deal_ID) }}">Edit</a>
+                        </button>
+                        <button class="button">
+                            <a href="#" class="delete-button" data-deal-id="{{ deal.Deal_ID }}" data-deal-status="{{ deal.Deal_Status }}" data-act-end-date="{{ deal.Act_End_Date }}" data-property-id="{{ deal.Property_ID }}" data-customer-id="{{ deal.Customer_ID }}" data-agent-id="{{ deal.Agent_ID }}" data-deal-type="{{ deal.Deal_Type }}" data-note="{{ deal.Note }}">Delete</a>
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.delete-button').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            var dealId = button.getAttribute('data-deal-id');
+            var dealStatus = button.getAttribute('data-deal-status');
+            var actEndDate = button.getAttribute('data-act-end-date');
+            var propertyId = button.getAttribute('data-property-id');
+            var customerId = button.getAttribute('data-customer-id');
+            var agentId = button.getAttribute('data-agent-id');
+            var dealType = button.getAttribute('data-deal-type');
+            var note = button.getAttribute('data-note');
+            if (confirm(`Are you sure you want to delete the deal with ID: ${dealId}\nDeal Status: ${dealStatus}\nActual End Date: ${actEndDate}\nProperty ID: ${propertyId}\nCustomer ID: ${customerId}\nAgent ID: ${agentId}\nDeal Type: ${dealType}\nNote: ${note}?`)) {
+                var form = document.createElement('form');
+                form.method = 'POST';
+                form.action = `/deals/delete/${dealId}`;
+                document.body.appendChild(form);
+                form.submit();
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

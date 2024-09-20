@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <h2>Update Feature</h2>
+    <form action="{{ url_for('update_feature', feature_id=feature.FeatureID) }}" method="POST">
+        <div class="form-group">
+            <label for="feature_name">Feature Name</label>
+            <input type="text" name="feature_name" id="feature_name" value="{{ feature.FeatureName }}" required>
+        </div>
+        <button type="submit">Update Feature</button>
+    </form>
+</div>
+{% endblock %}

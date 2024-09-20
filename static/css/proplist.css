@@ -1,0 +1,116 @@
+.contentt {
+    margin: 50px auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
+    font-weight: bold;
+}
+
+table {
+    max-width: 750px; /* Limit the maximum width of the table */
+    width: 80%; /* Make the table take up the full width of the content area */
+    border-collapse: collapse;
+    /* margin-bottom: 20px; */
+    background-color: #fff;
+    margin-left: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+    border-radius: 8px; /* Round the corners of the table */
+    overflow: hidden; /* Ensure the table stays within the rounded corners */
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    font-size: 10px; /* Increase the font size slightly */
+    color: #34495e;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #2980b9;
+    color: white;
+    text-transform: uppercase;
+    /* letter-spacing: 1px; */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.propmngg {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    background-color: #3498db;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-left: 150px;
+    transition: background-color 0.3s ease;
+}
+
+.propmngg:hover {
+    background-color: #2980b9;
+}
+
+.dashBb{
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    border-bottom: 2px solid #3498db;
+    width: 40%;
+
+    margin-left: 150px;
+
+    height: 50px;
+}
+
+.dashBb h2 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin: 0;
+    margin-left: 20px;
+}
+
+/* Button Styling */
+button {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #3498db;
+    text-transform: uppercase;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #2980b9;
+    align-items: center;
+    align-content: center;
+    margin: 4px;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    transition: background-color 0.3s ease, transform 0.4s ease-in-out;
+}

@@ -1,0 +1,49 @@
+<!-- customers/list.html -->
+{% extends 'base.html' %}
+
+
+{% block content %}
+<section>
+    <div class="contentt">
+        <header class="dashBb">
+            <h2>Customers</h2>
+        </header>
+        <div class="">
+            <a class="propmngg" href="{{ url_for('add_customer') }}"><p>Add New Customer</p></a>
+        </div>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>City</th>
+                <th>Actions</th>
+            </tr>
+            {% for customer in customers %}
+            <tr>
+                <td>{{ customer.F_Name }}</td>
+                <td>{{ customer.L_Name }}</td>
+                <td>{{ customer.Phone }}</td>
+                <td>{{ customer.Email }}</td>
+                <td>{{ customer.Customer_City }}</td>
+                <td>
+                    <button class="button">
+                        <a href="{{ url_for('update_customer', customer_id=customer.Customer_ID) }}">Update</a>
+                    </button>
+                    <form action="{{ url_for('delete_customer', customer_id=customer.Customer_ID) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete('{{ customer.Customer_ID }}', '{{ customer.F_Name }}', '{{ customer.L_Name }}');">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</section>
+<script>
+    function confirmDelete(customerId, firstName, lastName) {
+        return confirm(`Are you sure you want to delete the customer with ID: ${customerId}\nName: ${firstName} ${lastName}?`);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REMS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/proplist.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/addprop.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/agentslist.css') }}">
+
+
+
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar {
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #2c3e50;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar a {
+            height: 48px;
+            padding: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ecf0f1;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease, padding-left 0.3s ease;
+        }
+        
+        .sidebar a:hover {
+            background-color: #34495e;
+            padding-left: 30px;
+            transition: background-color 0.6s ease-in-out, padding-left 0.6s ease-in-out;
+        }
+        
+        .sidebar .active {
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            flex: 1; /* Allows content to take available space */
+        }
+        
+        header {
+            height: 100px;
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        section {
+            width: 100%;
+        }
+        
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .dashboard-stats {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .dashboard-stat {
+            background-color: #2980b9;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            width: 48%;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .dashboard-stat:hover {
+            background-color: #3498db;
+        }
+        
+        .dashboard-stat h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .dashboard-stat p {
+            margin: 5px 0 0;
+            font-size: 18px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+        
+            .sidebar a {
+                float: left;
+                text-align: center;
+                width: 100%;
+                padding: 10px 0;
+            }
+        
+            .content {
+                margin-left: 0;
+                padding: 10px;
+            }
+        
+            .dashboard-stat {
+                width: 100%;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo .name {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ecf0f1;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="sidebar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/property.png') }}" alt="REMS Logo" width="10" height="10">
+            <h3 class="name">REMS</h3>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('list_properties') }}">Properties</a></li>
+            <li><a href="{{ url_for('list_agents') }}">Agents</a></li>
+            <li><a href="{{ url_for('list_customers') }}">Customers</a></li>
+            <li><a href="{{ url_for('list_deals') }}">Deals</a></li>
+            <li><a href="{{ url_for('list_property_types') }}">Property Types</a></li>
+            <li><a href="{{ url_for('list_features') }}">Features</a></li>
+            <li><a href="{{ url_for('list_cash_deals') }}">Cash Deals</a></li>
+            <li><a href="{{ url_for('list_renting_deals') }}">Renting Deals</a></li>
+            <li><a href="{{ url_for('list_installment_deals') }}">Installment Deals</a></li>
+        </ul>
+    </div>
+
+
+    <section>
+        {% block content %}{% endblock %}
+    </section>
+    <footer>
+        <div></div>
+        <div>
+            <p>&copy; 2024 REMS. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

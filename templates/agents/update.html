@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+    <h2>Update Agent</h2>
+    <form method="POST" action="{{ url_for('update_agent', agent_id=agent.Agent_ID) }}">
+        <label for="F_Name">First Name:</label>
+        <input type="text" id="F_Name" name="First_Name" value="{{ agent.F_Name }}" required>
+
+        <label for="L_Name">Last Name:</label>
+        <input type="text" id="L_Name" name="Last_Name" value="{{ agent.L_Name }}" required>
+
+        <label for="Email_Address">Email:</label>
+        <input type="email" id="Email_Address" name="Email_Address" value="{{ agent.Email_Address }}" required>
+
+        <label for="Phone_No">Phone:</label>
+        <input type="tel" id="Phone_No" name="Phone_No" value="{{ agent.Phone_No }}" required>
+
+        <label for="Date_Hired">Hire Date:</label>
+        <input type="date" id="Date_Hired" name="Date_Hired" value="{{ agent.Date_Hired }}" required>
+
+        <label for="License_Number">License Number:</label>
+        <input type="text" id="License_Number" name="License_Number" value="{{ agent.License_Number }}" required>
+
+        <button type="submit">Update Agent</button>
+    </form>
+</div>
+{% endblock %}

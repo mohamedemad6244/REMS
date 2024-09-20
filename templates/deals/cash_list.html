@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="contentt">
+        <header class="dashBb">
+            <h2>Cash Deals</h2>
+        </header>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cash Deal ID</th>
+                    <th>Deal ID</th>
+                    <th>Deal Price</th>
+                    <th>Deal Date</th>
+                    <th>Upfront Deposit</th>
+                    <th>Deal Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deal in cash_deals %}
+                <tr>
+                    <td>{{ deal.Cash_Deal_ID }}</td>
+                    <td>{{ deal.Deal_ID }}</td>
+                    <td>{{ deal.Deal_Price }}</td>
+                    <td>{{ deal.Deal_Date }}</td>
+                    <td>{{ deal.Upfront_Deposit }}</td>
+                    <td>{{ deal.Deal_Status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div> 
+</section>
+{% endblock %}

@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="content">
+    <header class="dash">
+        <h1>REMS Dashboard</h1>
+    </header>
+
+    <section class="propSec">
+        <div class="handle1">
+            <div class="hed dashB">
+            <h2>Recent Properties</h2>
+            </div>
+            <div class="dashB1">
+                <a class="propmng" href="{{ url_for('list_properties') }}">
+                    <p>Property listings Managing.</p>
+                </a>
+            </div>
+            <div class ="dashB">
+                <div class="cardd">
+                    <h3>Total Properties</h1>
+                    <p>Total Properties: {{ properties_count4 }}</p>
+                </div>
+                <div class="cardd">
+                    <h3>Properties For Sale</h1>
+                    <p>Total Properties For Sale: {{ properties_count }}</p>
+                </div>
+                <div class="cardd">
+                    <h3>Properties For Rent</h1>
+                    <p>Total Properties For Rent: {{ properties_count2 }}</p>
+                </div>
+                <div class="cardd">
+                    <h3>Sold Properties</h1>
+                    <p>Total Sold Properties: {{ properties_count3 }}</p>
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+    <section class="propSec">
+        <div class="handle1">
+            <div class="hed dashB">
+                
+                <h2>Our Agents</h2>
+            </div>
+            <div class="dashB1">
+                <a class="propmng" href="{{ url_for('list_agents') }}">
+                    <p>Real estate agents Managing.</p>
+                </a>
+            </div>
+            <div class ="dashB">
+                <div class="cardd">
+                    <h3>Total Sales Agents</h1>
+                    <p>Total Sales Agents: {{ agents_count }}</p>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <section class="propSec">
+        <div class="handle1">
+            <div class="hed dashB">
+                <h2>Our Clients</h2>
+            </div>
+            <div class="dashB1">
+                <a class="propmng" href="{{ url_for('list_customers') }}">
+                    <p>Manage Our Clients</p>
+                </a>
+            </div>
+            <div class ="dashB">
+                <div class="cardd">
+                    <h3>Total Clients</h1>
+                    <p>Total Clients: {{ customers_count }}</p>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <section class="propSec">
+        <div class="handle1">
+            <div class="hed dashB">
+                <h2>Our Deals</h2>
+            </div>
+            <div class="dashB1">
+                <a class="propmng" href="{{ url_for('list_deals') }}">
+                    <p>Manage your deals here.</p>
+                </a>
+            </div>
+            <div class ="dashB">
+                <div class="cardd">
+                    <h3>Total Pending Deals</h1>
+                    <p>Total Pending deals: {{ deals_count }}</p>
+                </div>
+                <div class="cardd">
+                    <h3>Total completed Deals</h1>
+                        <p>Total completed deals: {{ deals_count2 }}</p>
+                    </div>
+                    <div class="cardd">
+                        <h3>Total cancelled Deals</h1>
+                            <p>Total cancelled deals: {{ deals_count3 }}</p>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+{% endblock %}
